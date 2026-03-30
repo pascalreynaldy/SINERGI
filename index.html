@@ -504,6 +504,20 @@
     transform: translateY(-15px);
   }
 }
+
+@media (max-width: 768px){
+  .hero-logo-float{
+    position: static;   /* jangan absolute di mobile */
+    width: 100px;       /* kecilin */
+    margin-top: 20px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    animation: none;    /* optional: matikan animasi biar clean */
+  }
+}
 </style>
 </head>
 <body>
