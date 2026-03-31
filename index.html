@@ -54,7 +54,7 @@
   }
   /* Logo: image left, text stack right */
   .nav-logo { display: flex; align-items: flex-start; gap: 4px; text-decoration: none; flex-direction: column;   /* INI KUNCI */}
-  .logo-img  { width: 44px; height: 44px; object-fit: contain; border-radius: 8px; flex-shrink: 0; }
+  .logo-img  { width: 120px; height: 120px; object-fit: contain; border-radius: 8px; flex-shrink: 0; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.15)) }
   .nav-brand-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
   .nav-brand-name  { font-size: .88rem; font-weight: 800; color: var(--navy); line-height: 1.1; }
   .nav-brand-sub   { font-size: .62rem; font-weight: 500; color: var(--gray-500); letter-spacing: .06em; text-transform: uppercase; }
@@ -234,7 +234,7 @@
   footer { background: var(--navy-dark); padding: 2.4rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; border-top: 1px solid rgba(255,255,255,.08); }
   /* Footer logo: image on top, text below */
   .footer-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
-  .footer-logo img { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; filter: brightness(.85); margin-bottom: 3px; }
+  .footer-logo img { width: 120px; height: 120px; object-fit: contain; border-radius: 6px; filter: brightness(.85); margin-bottom: 3px; filter: drop-shadow(0 6px 18px rgba(0,0,0,0.15))}
   .footer-brand-name { font-size: .8rem; font-weight: 700; color: rgba(255,255,255,.72); line-height: 1.1; }
   .footer-brand-sub  { font-size: .63rem; font-weight: 500; color: rgba(255,255,255,.36); letter-spacing: .06em; text-transform: uppercase; }
   .footer-copy { font-size: .73rem; color: rgba(255,255,255,.28); }
@@ -293,11 +293,7 @@
 <!-- ══ NAV ══ -->
 <nav id="navbar">
   <a class="nav-logo" href="#home">
-    <img src="assets/logo.jpeg" class="logo-img" alt="Logo Sinergi Bina Bangsa">
-    <div class="nav-brand-stack">
-      <span class="nav-brand-name">Sinergi Bina Bangsa</span>
-      <span class="nav-brand-sub">Konsultan Pendidikan Tinggi</span>
-    </div>
+    <img src="assets/logo hf.jpeg" class="logo-img" alt="Logo Sinergi Bina Bangsa">
   </a>
   <ul class="nav-links">
     <li><a href="#tentang">Tentang</a></li>
@@ -697,9 +693,7 @@
 <!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-logo">
-    <img src="assets/logo.jpeg" alt="Logo Sinergi Bina Bangsa">
-    <span class="footer-brand-name">Sinergi Bina Bangsa</span>
-    <span class="footer-brand-sub">Konsultan Pendidikan Tinggi</span>
+    <img src="assets/logo hf.jpeg" alt="Logo Sinergi Bina Bangsa">
   </div>
   <div class="footer-copy">© 2025 Sinergi Bina Bangsa. Seluruh hak cipta dilindungi.</div>
   <ul class="footer-links">
