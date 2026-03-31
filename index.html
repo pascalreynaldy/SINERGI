@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PT Sinergi Bina Bangsa – Konsultan Program Studi</title>
+<title>Sinergi Bina Bangsa – Konsultan Program Studi</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -44,7 +44,7 @@
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    padding: 1.1rem 4rem;
+    padding: 0.9rem 4rem;
     display: flex; align-items: center; justify-content: space-between;
     background: rgba(255,255,255,0.96);
     backdrop-filter: blur(16px);
@@ -52,10 +52,12 @@
     box-shadow: var(--shadow-sm);
     transition: padding .3s ease;
   }
-  .nav-logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
-  .logo-img { width: 40px; height: 40px; object-fit: contain; border-radius: 8px; }
-  .nav-brand { font-size: .88rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
-  .nav-brand span { display: block; font-size: .66rem; font-weight: 500; color: var(--gray-500); letter-spacing: .05em; text-transform: uppercase; }
+  /* Logo: image left, text stack right */
+  .nav-logo { display: flex; align-items: center; gap: .85rem; text-decoration: none; }
+  .logo-img  { width: 44px; height: 44px; object-fit: contain; border-radius: 8px; flex-shrink: 0; }
+  .nav-brand-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
+  .nav-brand-name  { font-size: .88rem; font-weight: 800; color: var(--navy); line-height: 1.1; }
+  .nav-brand-sub   { font-size: .62rem; font-weight: 500; color: var(--gray-500); letter-spacing: .06em; text-transform: uppercase; }
   .nav-links { display: flex; gap: .2rem; list-style: none; }
   .nav-links a { font-size: .84rem; font-weight: 500; text-decoration: none; color: var(--gray-700); padding: .48rem .9rem; border-radius: 8px; transition: all .2s; }
   .nav-links a:hover { color: var(--navy); background: var(--navy-light); }
@@ -69,67 +71,21 @@
   .mobile-nav a:hover { color: var(--accent); }
 
   /* ── HERO SLIDER ── */
-  .hero {
-    position: relative; overflow: hidden;
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-  }
-  .hero-logo-float {
-    position: absolute;
-    right: 6%;
-    top: 25%;
-    width: 700px;
-    background: white;
-    padding: 16px;
-    border-radius: 18px;
-    box-shadow: 0 25px 70px rgba(0,0,0,0.4);
-    animation: float 6s ease-in-out infinite;
-  }
+  .hero { position: relative; overflow: hidden; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; }
+  .hero-logo-float { position: absolute; right: 6%; top: 25%; width: 700px; background: white; padding: 16px; border-radius: 18px; box-shadow: 0 25px 70px rgba(0,0,0,0.4); animation: float 6s ease-in-out infinite; }
   .slides { display: flex; transition: transform .7s cubic-bezier(.77,0,.18,1); will-change: transform; }
-  .slide {
-    min-width: 100vw; min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 8rem 4rem 6rem;
-    position: relative; overflow: hidden;
-  }
+  .slide { min-width: 100vw; min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 8rem 4rem 6rem; position: relative; overflow: hidden; }
   .slide-1 { background: linear-gradient(135deg, #091d3e 0%, #0f2d5e 55%, #1a4080 100%); }
   .slide-2 { background: linear-gradient(135deg, #0a2240 0%, #133568 55%, #0f4f8c 100%); }
   .slide-3 { background: linear-gradient(135deg, #0d2545 0%, #123060 55%, #1b3d7a 100%); }
-
-  .slide-grid-pattern {
-    position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 0%, transparent 80%);
-    pointer-events: none;
-  }
-  .slide-blob {
-    position: absolute; top: -20%; right: -10%;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(37,99,235,.22) 0%, transparent 65%);
-    pointer-events: none;
-  }
+  .slide-grid-pattern { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse 90% 90% at 50% 50%, black 0%, transparent 80%); pointer-events: none; }
+  .slide-blob { position: absolute; top: -20%; right: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(37,99,235,.22) 0%, transparent 65%); pointer-events: none; }
   .slide-content { position: relative; z-index: 2; max-width: 560px; }
-  .slide-illus {
-    position: absolute; right: 5%; top: 50%; transform: translateY(-50%);
-    width: 42%; max-width: 520px; z-index: 2;
-    animation: floatY 7s ease-in-out infinite;
-  }
+  .slide-illus { position: absolute; right: 5%; top: 50%; transform: translateY(-50%); width: 42%; max-width: 520px; z-index: 2; animation: floatY 7s ease-in-out infinite; }
   @keyframes floatY { 0%,100%{transform:translateY(-50%) translateY(0)} 50%{transform:translateY(-50%) translateY(-18px)} }
-
-  .hero-badge {
-    display: inline-flex; align-items: center; gap: .6rem;
-    background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2);
-    color: rgba(255,255,255,.85); font-size: .72rem; font-weight: 600;
-    letter-spacing: .1em; text-transform: uppercase;
-    padding: .42rem 1rem; border-radius: 100px; margin-bottom: 1.8rem; width: fit-content;
-  }
+  .hero-badge { display: inline-flex; align-items: center; gap: .6rem; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.85); font-size: .72rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; padding: .42rem 1rem; border-radius: 100px; margin-bottom: 1.8rem; width: fit-content; }
   .hero-badge::before { content: ''; width: 6px; height: 6px; background: #4ade80; border-radius: 50%; }
-  .hero-title {
-    font-size: clamp(2.4rem, 5.5vw, 5.2rem);
-    font-weight: 800; line-height: 1.02;
-    letter-spacing: -.03em; color: var(--white); margin-bottom: 1.5rem;
-  }
+  .hero-title { font-size: clamp(2.4rem, 5.5vw, 5.2rem); font-weight: 800; line-height: 1.02; letter-spacing: -.03em; color: var(--white); margin-bottom: 1.5rem; }
   .hero-title .accent-word { color: #93c5fd; }
   .hero-sub { font-size: 1rem; font-weight: 400; line-height: 1.75; color: rgba(255,255,255,.62); max-width: 440px; margin-bottom: 2.5rem; }
   .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -137,24 +93,10 @@
   .btn-primary:hover { background: var(--navy-light); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
   .btn-ghost { background: rgba(255,255,255,.1); color: var(--white); border: 1px solid rgba(255,255,255,.25); padding: .85rem 1.8rem; font-size: .86rem; font-weight: 600; text-decoration: none; border-radius: 10px; transition: all .2s; }
   .btn-ghost:hover { background: rgba(255,255,255,.18); }
-
-  .slider-controls {
-    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
-    display: flex; gap: .6rem; z-index: 10; align-items: center;
-  }
-  .slider-dot {
-    width: 8px; height: 8px; border-radius: 50%;
-    background: rgba(255,255,255,.35); border: none; cursor: pointer;
-    transition: all .3s; padding: 0;
-  }
+  .slider-controls { position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: .6rem; z-index: 10; align-items: center; }
+  .slider-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.35); border: none; cursor: pointer; transition: all .3s; padding: 0; }
   .slider-dot.active { width: 28px; border-radius: 4px; background: rgba(255,255,255,.9); }
-  .slider-arrow {
-    position: absolute; top: 50%; transform: translateY(-50%);
-    z-index: 10; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2);
-    color: white; width: 44px; height: 44px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; cursor: pointer;
-    transition: all .2s; font-size: .9rem;
-  }
+  .slider-arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 10; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); color: white; width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all .2s; font-size: .9rem; }
   .slider-arrow:hover { background: rgba(255,255,255,.22); }
   .slider-arrow.prev { left: 2rem; }
   .slider-arrow.next { right: 2rem; }
@@ -215,228 +157,55 @@
   .process-step-desc { font-size: .8rem; line-height: 1.6; color: var(--gray-500); }
 
   /* ══════════════════════════════════════
-     WHY — ANIMATED VERSION
+     WHY — ANIMATED
   ══════════════════════════════════════ */
-  .why {
-    padding: 7rem 4rem;
-    background: linear-gradient(135deg, #091d3e 0%, #0f2d5e 55%, #1a4080 100%);
-    position: relative;
-    overflow: hidden;
-  }
-
-  /* bg grid pattern */
-  .why::before {
-    content: '';
-    position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
-    background-size: 55px 55px;
-    pointer-events: none;
-  }
-  /* radial blob */
-  .why::after {
-    content: '';
-    position: absolute; top: -15%; right: -8%;
-    width: 580px; height: 580px;
-    background: radial-gradient(circle, rgba(37,99,235,.18) 0%, transparent 65%);
-    pointer-events: none;
-  }
-
+  .why { padding: 7rem 4rem; background: linear-gradient(135deg, #091d3e 0%, #0f2d5e 55%, #1a4080 100%); position: relative; overflow: hidden; }
+  .why::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px); background-size: 55px 55px; pointer-events: none; }
+  .why::after { content: ''; position: absolute; top: -15%; right: -8%; width: 580px; height: 580px; background: radial-gradient(circle, rgba(37,99,235,.18) 0%, transparent 65%); pointer-events: none; }
   .why .section-eyebrow { color: #93c5fd; }
   .why .section-eyebrow::before { background: #93c5fd; }
   .why .section-title { color: var(--white); }
-
-  .why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: start;
-    position: relative;
-    z-index: 1;
-  }
-
-  /* ── Why items ── */
+  .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; position: relative; z-index: 1; }
   .why-list { display: flex; flex-direction: column; gap: .85rem; margin-top: 1.5rem; }
-
-  .why-item {
-    display: flex; gap: 1rem;
-    background: rgba(255,255,255,.07);
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 12px; padding: 1.2rem 1.4rem;
-    transition: background .25s, transform .25s, border-color .25s;
-    /* initial state for animation */
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-  .why-item.anim-in {
-    animation: whyItemIn .5s ease forwards;
-  }
-  .why-item:nth-child(1) { animation-delay: .05s; }
-  .why-item:nth-child(2) { animation-delay: .15s; }
-  .why-item:nth-child(3) { animation-delay: .25s; }
-  .why-item:nth-child(4) { animation-delay: .35s; }
-
-  @keyframes whyItemIn {
-    to { opacity: 1; transform: translateX(0); }
-  }
-
-  .why-item:hover {
-    background: rgba(255,255,255,.13);
-    transform: translateX(5px) !important;
-    border-color: rgba(255,255,255,.25);
-  }
-  .why-icon-wrap {
-    width: 40px; height: 40px; flex-shrink: 0;
-    background: rgba(255,255,255,.1); border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    transition: background .25s, transform .3s;
-  }
-  .why-item:hover .why-icon-wrap {
-    background: rgba(147,197,253,.2);
-    transform: scale(1.1) rotate(-4deg);
-  }
+  .why-item { display: flex; gap: 1rem; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12); border-radius: 12px; padding: 1.2rem 1.4rem; transition: background .25s, transform .25s, border-color .25s; opacity: 0; transform: translateX(-20px); }
+  .why-item.anim-in { animation: whyItemIn .5s ease forwards; }
+  .why-item:nth-child(1){animation-delay:.05s} .why-item:nth-child(2){animation-delay:.15s} .why-item:nth-child(3){animation-delay:.25s} .why-item:nth-child(4){animation-delay:.35s}
+  @keyframes whyItemIn { to { opacity: 1; transform: translateX(0); } }
+  .why-item:hover { background: rgba(255,255,255,.13); transform: translateX(5px) !important; border-color: rgba(255,255,255,.25); }
+  .why-icon-wrap { width: 40px; height: 40px; flex-shrink: 0; background: rgba(255,255,255,.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; transition: background .25s, transform .3s; }
+  .why-item:hover .why-icon-wrap { background: rgba(147,197,253,.2); transform: scale(1.1) rotate(-4deg); }
   .why-item-title { font-size: .88rem; font-weight: 700; color: var(--white); margin-bottom: .2rem; }
   .why-item-text { font-size: .8rem; line-height: 1.6; color: rgba(255,255,255,.55); }
-
-  /* ── Right column ── */
   .why-right { display: flex; flex-direction: column; gap: 1.4rem; }
-
-  /* Big stat card */
-  .why-big-card {
-    background: rgba(255,255,255,.08);
-    border: 1px solid rgba(255,255,255,.14);
-    border-radius: 20px; padding: 2.2rem;
-    position: relative; overflow: hidden;
-    opacity: 0;
-    transition: opacity .5s, transform .5s;
-    transform: translateY(20px);
-  }
-  .why-big-card.anim-in {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: .1s;
-  }
-
-  /* Shimmer on hover for big num */
-  .why-big-card:hover .big-num {
-    background: linear-gradient(90deg, #fff 0%, #93c5fd 40%, #fbbf24 60%, #fff 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    animation: shimmer 1.4s linear;
-  }
-  @keyframes shimmer {
-    from { background-position: -200% center; }
-    to   { background-position: 200% center; }
-  }
-
-  /* Orbit dot on hover */
-  .orbit-dot {
-    position: absolute; top: 50%; left: 50%;
-    width: 8px; height: 8px; margin: -4px;
-    background: rgba(147,197,253,.55); border-radius: 50%;
-    opacity: 0; pointer-events: none;
-    transition: opacity .4s .2s;
-  }
-  .why-big-card:hover .orbit-dot {
-    opacity: 1;
-    animation: orbit 7s linear infinite;
-  }
-  @keyframes orbit {
-    from { transform: rotate(0deg) translateX(68px) rotate(0deg); }
-    to   { transform: rotate(360deg) translateX(68px) rotate(-360deg); }
-  }
-
-  /* Glow blob inside big card */
-  .card-glow {
-    position: absolute; top: -30px; right: -30px;
-    width: 160px; height: 160px;
-    background: radial-gradient(circle, rgba(147,197,253,.12) 0%, transparent 70%);
-    pointer-events: none;
-    animation: glowPulse 4s ease-in-out infinite;
-  }
-  @keyframes glowPulse {
-    0%,100% { opacity: .6; transform: scale(1); }
-    50%      { opacity: 1;  transform: scale(1.15); }
-  }
-
-  .big-num {
-    font-size: 5rem; font-weight: 800; color: var(--white);
-    line-height: 1; margin-bottom: .4rem; letter-spacing: -.04em;
-    display: inline-block;
-  }
+  .why-big-card { background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.14); border-radius: 20px; padding: 2.2rem; position: relative; overflow: hidden; opacity: 0; transition: opacity .5s, transform .5s; transform: translateY(20px); }
+  .why-big-card.anim-in { opacity: 1; transform: translateY(0); transition-delay: .1s; }
+  .why-big-card:hover .big-num { background: linear-gradient(90deg, #fff 0%, #93c5fd 40%, #fbbf24 60%, #fff 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: shimmer 1.4s linear; }
+  @keyframes shimmer { from{background-position:-200% center} to{background-position:200% center} }
+  .orbit-dot { position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; margin: -4px; background: rgba(147,197,253,.55); border-radius: 50%; opacity: 0; pointer-events: none; transition: opacity .4s .2s; }
+  .why-big-card:hover .orbit-dot { opacity: 1; animation: orbit 7s linear infinite; }
+  @keyframes orbit { from{transform:rotate(0deg) translateX(68px) rotate(0deg)} to{transform:rotate(360deg) translateX(68px) rotate(-360deg)} }
+  .card-glow { position: absolute; top: -30px; right: -30px; width: 160px; height: 160px; background: radial-gradient(circle, rgba(147,197,253,.12) 0%, transparent 70%); pointer-events: none; animation: glowPulse 4s ease-in-out infinite; }
+  @keyframes glowPulse { 0%,100%{opacity:.6;transform:scale(1)} 50%{opacity:1;transform:scale(1.15)} }
+  .big-num { font-size: 5rem; font-weight: 800; color: var(--white); line-height: 1; margin-bottom: .4rem; letter-spacing: -.04em; display: inline-block; }
   .big-num span { color: #93c5fd; }
   .big-label { font-size: .88rem; line-height: 1.65; color: rgba(255,255,255,.58); margin-bottom: 1.6rem; }
-  .mini-stats {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
-    padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.12);
-  }
+  .mini-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.12); }
   .mini-stat-num { font-size: 1.55rem; font-weight: 800; color: var(--white); letter-spacing: -.02em; }
   .mini-stat-label { font-size: .67rem; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; color: rgba(255,255,255,.38); margin-top: .12rem; }
-
-  /* ── Chart card ── */
-  .why-chart-card {
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.12);
-    border-radius: 16px; padding: 1.4rem 1.4rem 1rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity .5s .25s, transform .5s .25s;
-  }
-  .why-chart-card.anim-in {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  .why-chart-label {
-    font-size: .67rem; font-weight: 600; letter-spacing: .1em;
-    text-transform: uppercase; color: rgba(255,255,255,.35);
-    margin-bottom: .9rem;
-  }
-
-  /* Bar chart animations */
-  .bar-rect {
-    transform-origin: bottom center;
-    transform: scaleY(0);
-    transition: transform .75s cubic-bezier(.34,1.56,.64,1);
-  }
+  .why-chart-card { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 16px; padding: 1.4rem 1.4rem 1rem; opacity: 0; transform: translateY(20px); transition: opacity .5s .25s, transform .5s .25s; }
+  .why-chart-card.anim-in { opacity: 1; transform: translateY(0); }
+  .why-chart-label { font-size: .67rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: .9rem; }
+  .bar-rect { transform-origin: bottom center; transform: scaleY(0); transition: transform .75s cubic-bezier(.34,1.56,.64,1); }
   .bar-label-val { opacity: 0; transition: opacity .4s; }
-
-  .bar-group:nth-child(1) .bar-rect  { transition-delay: .10s; }
-  .bar-group:nth-child(2) .bar-rect  { transition-delay: .22s; }
-  .bar-group:nth-child(3) .bar-rect  { transition-delay: .34s; }
-  .bar-group:nth-child(4) .bar-rect  { transition-delay: .46s; }
-  .bar-group:nth-child(5) .bar-rect  { transition-delay: .58s; }
-  .bar-group:nth-child(1) .bar-label-val { transition-delay: .70s; }
-  .bar-group:nth-child(2) .bar-label-val { transition-delay: .80s; }
-  .bar-group:nth-child(3) .bar-label-val { transition-delay: .90s; }
-  .bar-group:nth-child(4) .bar-label-val { transition-delay:1.00s; }
-  .bar-group:nth-child(5) .bar-label-val { transition-delay:1.10s; }
-
-  .why-chart-card.bars-animated .bar-rect       { transform: scaleY(1); }
-  .why-chart-card.bars-animated .bar-label-val  { opacity: 1; }
-
-  /* Trend line draw */
-  #trend-line {
-    stroke-dasharray: 300;
-    stroke-dashoffset: 300;
-    transition: stroke-dashoffset 1.3s ease .9s;
-  }
+  .bar-group:nth-child(1) .bar-rect{transition-delay:.10s} .bar-group:nth-child(2) .bar-rect{transition-delay:.25s} .bar-group:nth-child(3) .bar-rect{transition-delay:.40s} .bar-group:nth-child(4) .bar-rect{transition-delay:.55s}
+  .bar-group:nth-child(1) .bar-label-val{transition-delay:.70s} .bar-group:nth-child(2) .bar-label-val{transition-delay:.83s} .bar-group:nth-child(3) .bar-label-val{transition-delay:.96s} .bar-group:nth-child(4) .bar-label-val{transition-delay:1.09s}
+  .why-chart-card.bars-animated .bar-rect { transform: scaleY(1); }
+  .why-chart-card.bars-animated .bar-label-val { opacity: 1; }
+  #trend-line { stroke-dasharray: 300; stroke-dashoffset: 300; transition: stroke-dashoffset 1.3s ease .9s; }
   .why-chart-card.bars-animated #trend-line { stroke-dashoffset: 0; }
-
-  /* Trend dot pulse */
-  #trend-dot {
-    opacity: 0;
-    transition: opacity .3s 2.1s;
-  }
-  .why-chart-card.bars-animated #trend-dot {
-    opacity: 1;
-    animation: pulseDot 1.8s ease-in-out infinite 2.3s;
-  }
-  @keyframes pulseDot {
-    0%,100% { r: 4; opacity: 1; }
-    50%      { r: 7; opacity: .35; }
-  }
+  #trend-dot { opacity: 0; transition: opacity .3s 2.1s; }
+  .why-chart-card.bars-animated #trend-dot { opacity: 1; animation: pulseDot 1.8s ease-in-out infinite 2.3s; }
+  @keyframes pulseDot { 0%,100%{r:4;opacity:1} 50%{r:7;opacity:.35} }
 
   /* ── CONTACT ── */
   .contact { padding: 7rem 4rem; background: var(--off-white); }
@@ -445,7 +214,7 @@
   .contact-header .section-eyebrow { justify-content: center; }
   .contact-header .section-title { font-size: clamp(1.9rem, 3.8vw, 3rem); }
   .contact-header .section-title .navy { color: var(--navy); }
-  .contact-sub { font-size: .97rem; line-height: 1.75; color: var(--gray-500); max-width: 480px; margin: 0 auto; }
+  .contact-sub { font-size: .97rem; line-height: 1.75; color: var(--gray-500); max-width: 520px; margin: 0 auto; }
   .contact-form-wrap { background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem; box-shadow: var(--shadow-md); }
   .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
   .form-group { display: flex; flex-direction: column; gap: .4rem; }
@@ -462,10 +231,12 @@
   .contact-info-val { font-size: .88rem; font-weight: 500; color: var(--gray-700); }
 
   /* ── FOOTER ── */
-  footer { background: var(--navy-dark); padding: 2.2rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; border-top: 1px solid rgba(255,255,255,.08); }
-  .footer-logo { display: flex; align-items: center; gap: .7rem; }
-  .footer-logo img { width: 28px; height: 28px; object-fit: contain; border-radius: 6px; filter: brightness(.8); }
-  .footer-brand { font-size: .78rem; font-weight: 600; color: rgba(255,255,255,.65); }
+  footer { background: var(--navy-dark); padding: 2.4rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; border-top: 1px solid rgba(255,255,255,.08); }
+  /* Footer logo: image on top, text below */
+  .footer-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
+  .footer-logo img { width: 32px; height: 32px; object-fit: contain; border-radius: 6px; filter: brightness(.85); margin-bottom: 3px; }
+  .footer-brand-name { font-size: .8rem; font-weight: 700; color: rgba(255,255,255,.72); line-height: 1.1; }
+  .footer-brand-sub  { font-size: .63rem; font-weight: 500; color: rgba(255,255,255,.36); letter-spacing: .06em; text-transform: uppercase; }
   .footer-copy { font-size: .73rem; color: rgba(255,255,255,.28); }
   .footer-links { display: flex; gap: 1.5rem; list-style: none; }
   .footer-links a { font-size: .76rem; font-weight: 500; color: rgba(255,255,255,.38); text-decoration: none; transition: color .2s; }
@@ -478,7 +249,7 @@
 
   /* ── RESPONSIVE ── */
   @media(max-width:1024px){
-    nav{padding:1rem 1.5rem}
+    nav{padding:.7rem 1.5rem}
     .nav-links{display:none}
     .hamburger{display:flex}
     .slide{padding:6rem 1.5rem 5rem}
@@ -494,7 +265,8 @@
     .services-grid{grid-template-columns:1fr 1fr}
     .why-grid{grid-template-columns:1fr;gap:2.5rem}
     .contact-form{grid-template-columns:1fr}
-    footer{padding:2rem 1.5rem;flex-direction:column;text-align:center}
+    footer{padding:2rem 1.5rem;flex-direction:column;align-items:center;text-align:center}
+    .footer-logo{align-items:center}
   }
   @media(max-width:640px){
     .services-grid{grid-template-columns:1fr}
@@ -503,13 +275,8 @@
     .stats-bar{grid-template-columns:1fr 1fr}
     .contact-form-wrap{padding:1.5rem}
   }
-
-  .counter{display:inline-block}
-
-  @keyframes float{
-    0%,100%{ transform: translateY(0); }
-    50%{ transform: translateY(-15px); }
-  }
+  .counter { display: inline-block; }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-15px)} }
 </style>
 </head>
 <body>
@@ -524,23 +291,25 @@
   <a href="#kontak" onclick="toggleNav()">Kontak</a>
 </div>
 
+<!-- ══ NAV ══ -->
 <nav id="navbar">
   <a class="nav-logo" href="#home">
-    <img src="assets/logo.jpeg" class="logo-img" alt="Logo Sinergi">
-    <div class="nav-brand">PT Sinergi Bina Bangsa <span>Konsultan Pendidikan Tinggi</span></div>
+    <img src="assets/logo.jpeg" class="logo-img" alt="Logo Sinergi Bina Bangsa">
+    <div class="nav-brand-stack">
+      <span class="nav-brand-name">Sinergi Bina Bangsa</span>
+      <span class="nav-brand-sub">Konsultan Pendidikan Tinggi</span>
+    </div>
   </a>
   <ul class="nav-links">
     <li><a href="#tentang">Tentang</a></li>
     <li><a href="#layanan">Layanan</a></li>
     <li><a href="#proses">Proses</a></li>
-    <li><a href="#kontak" class="nav-cta">Konsultasi Gratis</a></li>
+    <li><a href="#kontak" class="nav-cta">Konsultasi</a></li>
   </ul>
   <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- ══════════════════════════════════════
-     HERO SLIDER
-══════════════════════════════════════ -->
+<!-- ══ HERO ══ -->
 <section class="hero" id="home">
   <div class="slides" id="slides">
 
@@ -554,7 +323,7 @@
         <p class="hero-sub">Mitra strategis perguruan tinggi dalam pendirian dan pengembangan program studi baru yang terakreditasi dan berdaya saing.</p>
         <div class="hero-actions">
           <a href="#layanan" class="btn-primary">Lihat Layanan Kami <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <a href="#kontak" class="btn-ghost">Konsultasi Gratis</a>
+          <a href="#kontak" class="btn-ghost">Hubungi Kami</a>
         </div>
       </div>
       <img src="assets/logo.jpeg" class="hero-logo-float" alt="Logo">
@@ -588,25 +357,13 @@
           <circle cx="167" cy="121" r="9" fill="#2563eb"/>
           <path d="M163 121 L166 124 L172 118" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <rect x="182" y="116" width="100" height="6" rx="3" fill="#334155" opacity=".5"/>
-          <rect x="182" y="125" width="70" height="4" rx="2" fill="#64748b" opacity=".3"/>
           <rect x="150" y="144" width="200" height="26" rx="5" fill="#dbeafe"/>
           <circle cx="167" cy="157" r="9" fill="#2563eb"/>
           <path d="M163 157 L166 160 L172 154" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <rect x="182" y="152" width="115" height="6" rx="3" fill="#334155" opacity=".5"/>
-          <rect x="182" y="161" width="80" height="4" rx="2" fill="#64748b" opacity=".3"/>
           <rect x="150" y="180" width="200" height="26" rx="5" fill="#fef3c7"/>
           <circle cx="167" cy="193" r="9" fill="#f59e0b"/>
-          <rect x="163" y="191" width="8" height="4" rx="1" fill="white"/>
           <rect x="182" y="188" width="90" height="6" rx="3" fill="#334155" opacity=".5"/>
-          <rect x="182" y="197" width="60" height="4" rx="2" fill="#64748b" opacity=".3"/>
-          <rect x="150" y="216" width="200" height="26" rx="5" fill="#f8fafc"/>
-          <circle cx="167" cy="229" r="9" fill="none" stroke="#cbd5e1" stroke-width="2"/>
-          <rect x="182" y="224" width="105" height="6" rx="3" fill="#334155" opacity=".28"/>
-          <rect x="182" y="233" width="75" height="4" rx="2" fill="#64748b" opacity=".18"/>
-          <rect x="150" y="252" width="200" height="26" rx="5" fill="#f8fafc"/>
-          <circle cx="167" cy="265" r="9" fill="none" stroke="#cbd5e1" stroke-width="2"/>
-          <rect x="182" y="260" width="80" height="6" rx="3" fill="#334155" opacity=".28"/>
-          <rect x="182" y="269" width="55" height="4" rx="2" fill="#64748b" opacity=".18"/>
           <rect x="150" y="296" width="200" height="6" rx="3" fill="#e2e8f0"/>
           <rect x="150" y="296" width="130" height="6" rx="3" fill="#2563eb"/>
           <text x="150" y="316" font-size="9" fill="#64748b" font-family="Plus Jakarta Sans, sans-serif">Progress: 65%</text>
@@ -623,9 +380,9 @@
       <div class="slide-grid-pattern"></div>
       <div class="slide-blob"></div>
       <div class="slide-content">
-        <div class="hero-badge">98% Tingkat Keberhasilan</div>
-        <h1 class="hero-title">Dipercaya <span class="accent-word">80+ Perguruan</span> Tinggi.</h1>
-        <p class="hero-sub">Selama lebih dari satu dekade, kami telah membantu 150+ program studi baru berdiri dan beroperasi di 34 provinsi di seluruh Indonesia.</p>
+        <div class="hero-badge">95% Revisi Minor — 100% SK Pembukaan</div>
+        <h1 class="hero-title">Dipercaya <span class="accent-word">30+ Perguruan</span> Tinggi.</h1>
+        <p class="hero-sub">Selama tiga tahun, kami telah membantu 40+ program studi baru berdiri dan beroperasi di berbagai wilayah Indonesia.</p>
         <div class="hero-actions">
           <a href="#tentang" class="btn-primary">Tentang Kami <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
           <a href="#kontak" class="btn-ghost">Mulai Sekarang</a>
@@ -637,8 +394,6 @@
           <path d="M60,180 Q80,160 120,158 Q160,156 185,175 Q175,200 155,215 Q130,228 100,220 Q75,210 60,195 Z" fill="#1e3a6e" opacity=".9"/>
           <path d="M160,230 Q200,220 260,218 Q310,216 350,225 Q345,248 320,255 Q280,262 240,258 Q200,254 170,245 Z" fill="#243f7a" opacity=".9"/>
           <path d="M230,140 Q270,115 320,118 Q365,120 390,148 Q400,175 385,200 Q365,220 330,228 Q295,235 265,218 Q240,202 232,175 Z" fill="#1e3a6e" opacity=".85"/>
-          <path d="M380,160 Q395,148 415,150 Q428,165 420,185 Q410,198 395,200 Q382,188 380,172 Z" fill="#243f7a" opacity=".8"/>
-          <path d="M430,175 Q460,160 495,168 Q510,185 505,205 Q490,220 465,218 Q445,212 435,198 Z" fill="#1e3a6e" opacity=".8"/>
           <circle cx="120" cy="188" r="8" fill="#fbbf24" opacity=".9"/>
           <circle cx="120" cy="188" r="14" fill="#fbbf24" opacity=".2"/>
           <circle cx="210" cy="238" r="8" fill="#93c5fd" opacity=".9"/>
@@ -646,19 +401,15 @@
           <circle cx="290" cy="236" r="10" fill="#2563eb"/>
           <circle cx="290" cy="236" r="18" fill="#2563eb" opacity=".2"/>
           <circle cx="305" cy="172" r="7" fill="#fbbf24" opacity=".8"/>
-          <circle cx="408" cy="175" r="6" fill="#93c5fd" opacity=".8"/>
-          <circle cx="470" cy="190" r="6" fill="#fbbf24" opacity=".7"/>
           <line x1="120" y1="188" x2="210" y2="238" stroke="#93c5fd" stroke-width="1" stroke-dasharray="4,4" opacity=".4"/>
           <line x1="210" y1="238" x2="290" y2="236" stroke="#93c5fd" stroke-width="1.5" stroke-dasharray="4,4" opacity=".5"/>
           <line x1="290" y1="236" x2="305" y2="172" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,4" opacity=".4"/>
-          <line x1="305" y1="172" x2="408" y2="175" stroke="#93c5fd" stroke-width="1" stroke-dasharray="4,4" opacity=".4"/>
-          <line x1="408" y1="175" x2="470" y2="190" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,4" opacity=".35"/>
           <rect x="50" y="270" width="120" height="60" rx="10" fill="#0f2d5e" opacity=".95"/>
-          <text x="110" y="292" text-anchor="middle" font-size="22" fill="white" font-weight="800" font-family="Plus Jakarta Sans, sans-serif">150+</text>
+          <text x="110" y="292" text-anchor="middle" font-size="22" fill="white" font-weight="800" font-family="Plus Jakarta Sans, sans-serif">40+</text>
           <text x="110" y="318" text-anchor="middle" font-size="9" fill="#93c5fd" font-family="Plus Jakarta Sans, sans-serif">Program Studi</text>
           <rect x="350" y="265" width="120" height="60" rx="10" fill="#0f2d5e" opacity=".95"/>
-          <text x="410" y="287" text-anchor="middle" font-size="22" fill="#fbbf24" font-weight="800" font-family="Plus Jakarta Sans, sans-serif">34</text>
-          <text x="410" y="313" text-anchor="middle" font-size="9" fill="#93c5fd" font-family="Plus Jakarta Sans, sans-serif">Provinsi</text>
+          <text x="410" y="287" text-anchor="middle" font-size="22" fill="#fbbf24" font-weight="800" font-family="Plus Jakarta Sans, sans-serif">30+</text>
+          <text x="410" y="313" text-anchor="middle" font-size="9" fill="#93c5fd" font-family="Plus Jakarta Sans, sans-serif">Perguruan Tinggi</text>
         </svg>
       </div>
     </div>
@@ -667,36 +418,36 @@
   <button class="slider-arrow prev" id="prevBtn" aria-label="Previous">&#8592;</button>
   <button class="slider-arrow next" id="nextBtn" aria-label="Next">&#8594;</button>
   <div class="slider-controls" id="sliderDots">
-    <button class="slider-dot active" data-idx="0" aria-label="Slide 1"></button>
-    <button class="slider-dot" data-idx="1" aria-label="Slide 2"></button>
-    <button class="slider-dot" data-idx="2" aria-label="Slide 3"></button>
+    <button class="slider-dot active" data-idx="0"></button>
+    <button class="slider-dot" data-idx="1"></button>
+    <button class="slider-dot" data-idx="2"></button>
   </div>
   <div class="hero-scroll">Scroll</div>
 </section>
 
-<!-- ══════════════════════════════════════ STATS ══ -->
+<!-- ══ STATS ══ -->
 <div class="stats-bar">
-  <div class="stat-item fade-up"><div class="stat-number"><span class="counter" data-target="150">0</span>+</div><div class="stat-label">Program Studi Berhasil</div></div>
-  <div class="stat-item fade-up"><div class="stat-number"><span class="counter" data-target="80">0</span>+</div><div class="stat-label">Perguruan Tinggi Mitra</div></div>
-  <div class="stat-item fade-up"><div class="stat-number"><span class="counter" data-target="10">0</span>+</div><div class="stat-label">Tahun Pengalaman</div></div>
-  <div class="stat-item fade-up"><div class="stat-number"><span class="counter" data-target="98">0</span>%</div><div class="stat-label">Tingkat Keberhasilan</div></div>
+  <div class="stat-item fade-up"><div class="stat-number"><span class="counter" data-target="40">0</span>+</div><div class="stat-label">Program Studi Berhasil</div></div>
+  <div class="stat-item fade-up"><div class="stat-number"><span class="counter" data-target="30">0</span>+</div><div class="stat-label">Perguruan Tinggi Mitra</div></div>
+  <div class="stat-item fade-up"><div class="stat-number"><span class="counter" data-target="3">0</span>+</div><div class="stat-label">Tahun Pengalaman</div></div>
+  <div class="stat-item fade-up"><div class="stat-number"><span class="counter" data-target="100">0</span>%</div><div class="stat-label">SK Pembukaan Diperoleh</div></div>
 </div>
 
-<!-- ══════════════════════════════════════ ABOUT ══ -->
+<!-- ══ ABOUT ══ -->
 <section class="about" id="tentang">
   <div class="about-inner">
     <div class="about-text-block">
       <div class="section-eyebrow">Tentang Kami</div>
       <h2 class="section-title fade-up">Mitra Terpercaya Pengembangan Prodi</h2>
-      <p class="body-text fade-up">PT Sinergi Bina Bangsa adalah perusahaan konsultan spesialis dalam bidang pendidikan tinggi, khususnya mendampingi perguruan tinggi dalam proses pendirian program studi baru sesuai regulasi Dikti.</p>
-      <p class="body-text fade-up">Dengan tim pakar berpengalaman dan jejaring yang luas, kami memastikan setiap proses berjalan lancar — dari penyusunan dokumen, pemenuhan kurikulum, hingga akreditasi.</p>
+      <p class="body-text fade-up">Sinergi Bina Bangsa adalah perusahaan konsultan spesialis dalam bidang pendidikan tinggi, khususnya mendampingi perguruan tinggi dalam proses pendirian program studi baru sesuai regulasi Dikti.</p>
+      <p class="body-text fade-up">Dengan tim pakar berpengalaman dan jejaring yang luas, kami memastikan setiap proses berjalan lancar — dari penyusunan dokumen, pemenuhan kurikulum, hingga akreditasi. Kami bangga dengan rekam jejak 100% mitra berhasil memperoleh SK Pembukaan Program Studi.</p>
     </div>
     <div class="about-cards-grid">
       <div class="about-card fade-up">
         <div class="about-card-num">01</div>
         <div class="about-card-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="8" fill="#e8eef8"/><path d="M14 6L20 9.5V16.5L14 20L8 16.5V9.5L14 6Z" stroke="#1a4080" stroke-width="1.8" stroke-linejoin="round"/><circle cx="14" cy="13" r="2.5" fill="#2563eb"/></svg></div>
         <div class="about-card-title">Berpengalaman</div>
-        <div class="about-card-desc">Lebih dari satu dekade mendampingi institusi pendidikan di seluruh Indonesia.</div>
+        <div class="about-card-desc">Mendampingi 30+ institusi pendidikan tinggi di berbagai wilayah Indonesia.</div>
       </div>
       <div class="about-card fade-up">
         <div class="about-card-num">02</div>
@@ -714,13 +465,13 @@
         <div class="about-card-num">04</div>
         <div class="about-card-icon"><svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="8" fill="#e8eef8"/><path d="M14 7L15.8 12.2H21.2L16.7 15.4L18.5 20.6L14 17.4L9.5 20.6L11.3 15.4L6.8 12.2H12.2L14 7Z" fill="#2563eb"/></svg></div>
         <div class="about-card-title">Terpercaya</div>
-        <div class="about-card-desc">Didukung oleh jaringan pakar akademisi dan praktisi pendidikan tinggi.</div>
+        <div class="about-card-desc">100% mitra kami berhasil memperoleh SK Pembukaan Program Studi dari Dikti.</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ SERVICES ══ -->
+<!-- ══ SERVICES ══ -->
 <section class="services" id="layanan">
   <div class="services-header">
     <div class="section-eyebrow">Layanan Kami</div>
@@ -728,79 +479,103 @@
     <p class="body-text fade-up">Kami menyediakan paket layanan konsultasi end-to-end yang dirancang untuk memenuhi seluruh persyaratan Dikti secara efisien dan terstruktur.</p>
   </div>
   <div class="services-grid">
+
+    <!-- 1 -->
     <div class="service-card fade-up">
       <div class="service-num">01</div>
-      <div class="service-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 17H15M9 13H15M9 9H11M13 3H5C4.447 3 4 3.448 4 4V20C4 20.552 4.447 21 5 21H19C19.553 21 20 20.552 20 20V10M13 3L20 10M13 3V10H20" stroke="#1a4080" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="service-title">Studi Kelayakan & Analisis Kebutuhan</div>
-      <div class="service-desc">Kajian mendalam atas kebutuhan pasar, ketersediaan SDM, dan potensi pengembangan program studi yang akan didirikan.</div>
+      <div class="service-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3Z" stroke="#1a4080" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M9 8H15M9 12H15M9 16H12" stroke="#1a4080" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="18" cy="18" r="5" fill="#e8eef8"/>
+          <path d="M16.5 18L17.5 19L19.5 17" stroke="#2563eb" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="service-title">Pendampingan Pendirian Prodi FK &amp; FKG</div>
+      <div class="service-desc">Pendampingan menyeluruh pendirian Fakultas Kedokteran dan Kedokteran Gigi, mulai studi kelayakan, dokumen, hingga perolehan izin Dikti.</div>
     </div>
+
+    <!-- 2 -->
     <div class="service-card fade-up">
       <div class="service-num">02</div>
-      <div class="service-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 2H6C5.448 2 5 2.448 5 3V21C5 21.552 5.448 22 6 22H18C18.552 22 19 21.552 19 21V7L14 2Z" stroke="#1a4080" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 2V7H19" stroke="#1a4080" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 13H15M9 17H13" stroke="#1a4080" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <div class="service-title">Penyusunan Dokumen Usulan Prodi</div>
-      <div class="service-desc">Penyusunan seluruh dokumen persyaratan sesuai format dan standar yang ditetapkan oleh Direktorat Jenderal Pendidikan Tinggi.</div>
+      <div class="service-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="3" width="18" height="18" rx="3" stroke="#1a4080" stroke-width="1.6"/>
+          <path d="M8 12H16M12 8V16" stroke="#1a4080" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="service-title">Pendampingan Pendirian Prodi Non-FK</div>
+      <div class="service-desc">Konsultasi dan pendampingan lengkap untuk pendirian program studi di luar rumpun kedokteran, sesuai regulasi dan standar Dikti terbaru.</div>
     </div>
+
+    <!-- 3 -->
     <div class="service-card fade-up">
       <div class="service-num">03</div>
-      <div class="service-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M22 10V15C22 19 20 21 16 21H8C4 21 2 19 2 15V9C2 5 4 3 8 3H14" stroke="#1a4080" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 10H18C15 10 14 9 14 6V2L22 10Z" stroke="#1a4080" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 13H13M7 17H11" stroke="#1a4080" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-      <div class="service-title">Pengembangan Kurikulum</div>
-      <div class="service-desc">Perancangan kurikulum berbasis OBE yang sesuai dengan KKNI dan kebutuhan industri terkini.</div>
+      <div class="service-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M9 3H4C3.45 3 3 3.45 3 4V9C3 9.55 3.45 10 4 10H9C9.55 10 10 9.55 10 9V4C10 3.45 9.55 3 9 3Z" stroke="#1a4080" stroke-width="1.6"/>
+          <path d="M20 3H15C14.45 3 14 3.45 14 4V9C14 9.55 14.45 10 15 10H20C20.55 10 21 9.55 21 9V4C21 3.45 20.55 3 20 3Z" stroke="#1a4080" stroke-width="1.6"/>
+          <path d="M9 14H4C3.45 14 3 14.45 3 15V20C3 20.55 3.45 21 4 21H9C9.55 21 10 20.55 10 20V15C10 14.45 9.55 14 9 14Z" stroke="#1a4080" stroke-width="1.6"/>
+          <path d="M17.5 14V21M14 17.5H21" stroke="#2563eb" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="service-title">Penyediaan Alat Praktikum FK &amp; FKG</div>
+      <div class="service-desc">Pengadaan peralatan laboratorium lengkap untuk Fakultas Kedokteran dan Kedokteran Gigi sesuai standar minimal yang disyaratkan Dikti.</div>
     </div>
+
+    <!-- 4 -->
     <div class="service-card fade-up">
       <div class="service-num">04</div>
-      <div class="service-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="7" r="3" stroke="#1a4080" stroke-width="1.6"/><path d="M3 21V19C3 16.8 4.8 15 7 15H11C13.2 15 15 16.8 15 19V21" stroke="#1a4080" stroke-width="1.6" stroke-linecap="round"/><path d="M16 3.13C17.16 3.35 18 4.38 18 5.6C18 6.82 17.16 7.85 16 8.07" stroke="#1a4080" stroke-width="1.6" stroke-linecap="round"/><path d="M21 21V19C20.99 17.79 20.16 16.77 19 16.52" stroke="#1a4080" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-      <div class="service-title">Rekrutmen & Pengembangan SDM</div>
-      <div class="service-desc">Bantuan dalam proses seleksi dan pengembangan tenaga pengajar yang memenuhi kualifikasi akademik yang dipersyaratkan.</div>
+      <div class="service-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3L2 8L12 13L22 8L12 3Z" stroke="#1a4080" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M2 17L12 22L22 17" stroke="#1a4080" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="#1a4080" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="service-title">Penyediaan Alat Praktikum Pendidikan</div>
+      <div class="service-desc">Penyediaan sarana dan prasarana praktikum untuk berbagai program studi non-kedokteran, disesuaikan dengan kebutuhan kurikulum masing-masing prodi.</div>
     </div>
+
+    <!-- 5 -->
     <div class="service-card fade-up">
       <div class="service-num">05</div>
-      <div class="service-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L14.5 9H22L16 13.5L18.5 20.5L12 16L5.5 20.5L8 13.5L2 9H9.5L12 2Z" stroke="#1a4080" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-      <div class="service-title">Pendampingan Akreditasi</div>
-      <div class="service-desc">Bimbingan intensif dalam proses persiapan dan pengajuan akreditasi ke BAN-PT atau LAM yang relevan.</div>
+      <div class="service-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="9" stroke="#1a4080" stroke-width="1.6"/>
+          <path d="M12 7V12L15 14" stroke="#1a4080" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="service-title">Konsultasi Pasca Pendirian Prodi</div>
+      <div class="service-desc">Pendampingan berkelanjutan pasca pendirian untuk memastikan prodi berjalan optimal dan siap menghadapi monitoring serta evaluasi Dikti berikutnya.</div>
     </div>
+
+    <!-- 6 -->
     <div class="service-card fade-up">
       <div class="service-num">06</div>
-      <div class="service-icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 20V4M12 20L6 14M12 20L18 14" stroke="#1a4080" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 4H4" stroke="#1a4080" stroke-width="1.6" stroke-linecap="round"/></svg></div>
-      <div class="service-title">Konsultasi Pasca Pendirian</div>
-      <div class="service-desc">Pendampingan berkelanjutan untuk memastikan prodi berjalan optimal dan siap menghadapi evaluasi berikutnya.</div>
+      <div class="service-icon-wrap">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L14.5 9H22L16 13.5L18.5 20.5L12 16L5.5 20.5L8 13.5L2 9H9.5L12 2Z" stroke="#1a4080" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="service-title">Pendampingan Akreditasi Prodi</div>
+      <div class="service-desc">Bimbingan intensif dalam proses persiapan dan pengajuan akreditasi ke BAN-PT atau Lembaga Akreditasi Mandiri (LAM) yang relevan.</div>
     </div>
+
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ PROCESS ══ -->
-<section class="process" id="proses">
-  <div class="process-inner">
-    <div class="section-eyebrow">Cara Kami Bekerja</div>
-    <h2 class="section-title fade-up">Proses Terstruktur & Transparan</h2>
-    <p class="body-text fade-up">Lima tahapan yang jelas dan terukur memastikan pendirian program studi Anda berjalan lancar tanpa hambatan.</p>
-    <div class="process-timeline">
-      <div class="process-step fade-up"><div class="process-dot">1</div><div><div class="process-step-title">Konsultasi Awal</div><div class="process-step-desc">Diskusi mendalam tentang kebutuhan, tujuan, dan kondisi institusi Anda.</div></div></div>
-      <div class="process-step fade-up"><div class="process-dot">2</div><div><div class="process-step-title">Analisis & Perencanaan</div><div class="process-step-desc">Penyusunan roadmap pendirian prodi yang realistis dan terstruktur.</div></div></div>
-      <div class="process-step fade-up"><div class="process-dot">3</div><div><div class="process-step-title">Penyusunan Dokumen</div><div class="process-step-desc">Persiapan seluruh dokumen persyaratan sesuai standar Dikti.</div></div></div>
-      <div class="process-step fade-up"><div class="process-dot">4</div><div><div class="process-step-title">Pengajuan & Verifikasi</div><div class="process-step-desc">Pendampingan proses pengajuan dan verifikasi oleh pihak berwenang.</div></div></div>
-      <div class="process-step fade-up"><div class="process-dot">5</div><div><div class="process-step-title">Prodi Resmi Berjalan</div><div class="process-step-desc">Program studi siap beroperasi dan menerima mahasiswa baru.</div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══════════════════════════════════════
-     WHY — ANIMATED
-══════════════════════════════════════ -->
+<!-- ══ WHY ══ -->
 <section class="why" id="kenapa">
   <div class="why-grid">
-
-    <!-- LEFT: keunggulan list -->
     <div>
       <div class="section-eyebrow">Mengapa Memilih Kami</div>
       <h2 class="section-title fade-up">Keunggulan yang Membedakan Kami</h2>
-
       <div class="why-list" id="whyList">
 
         <div class="why-item">
           <div class="why-icon-wrap">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 2L12.2 7.2H17.8L13.3 10.4L15.1 15.6L10 12.4L4.9 15.6L6.7 10.4L2.2 7.2H7.8L10 2Z" stroke="#93c5fd" stroke-width="1.5" stroke-linejoin="round"/>
-            </svg>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L12.2 7.2H17.8L13.3 10.4L15.1 15.6L10 12.4L4.9 15.6L6.7 10.4L2.2 7.2H7.8L10 2Z" stroke="#93c5fd" stroke-width="1.5" stroke-linejoin="round"/></svg>
           </div>
           <div>
             <div class="why-item-title">Proses Cepat &amp; Efisien</div>
@@ -810,10 +585,7 @@
 
         <div class="why-item">
           <div class="why-icon-wrap">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <circle cx="10" cy="10" r="7" stroke="#93c5fd" stroke-width="1.5"/>
-              <path d="M10 6V10L13 12" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#93c5fd" stroke-width="1.5"/><path d="M10 6V10L13 12" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/></svg>
           </div>
           <div>
             <div class="why-item-title">Tim Pakar Berpengalaman</div>
@@ -823,22 +595,17 @@
 
         <div class="why-item">
           <div class="why-icon-wrap">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 2L12 7H17L13 10.5L14.5 16L10 13L5.5 16L7 10.5L3 7H8L10 2Z" fill="rgba(147,197,253,.25)" stroke="#93c5fd" stroke-width="1.5" stroke-linejoin="round"/>
-            </svg>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L12 7H17L13 10.5L14.5 16L10 13L5.5 16L7 10.5L3 7H8L10 2Z" fill="rgba(147,197,253,.25)" stroke="#93c5fd" stroke-width="1.5" stroke-linejoin="round"/></svg>
           </div>
           <div>
-            <div class="why-item-title">Garansi Keberhasilan</div>
-            <div class="why-item-text">Track record 98% keberhasilan dengan komitmen pendampingan hingga prodi resmi disetujui.</div>
+            <div class="why-item-title">100% SK Pembukaan Prodi</div>
+            <div class="why-item-text">Seluruh mitra kami berhasil memperoleh SK Pembukaan Program Studi — 95% hanya mendapat revisi minor.</div>
           </div>
         </div>
 
         <div class="why-item">
           <div class="why-icon-wrap">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M10 2V10M10 10L7 7M10 10L13 7" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="3" y="14" width="14" height="4" rx="2" stroke="#93c5fd" stroke-width="1.5"/>
-            </svg>
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2V10M10 10L7 7M10 10L13 7" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="14" width="14" height="4" rx="2" stroke="#93c5fd" stroke-width="1.5"/></svg>
           </div>
           <div>
             <div class="why-item-title">Update Regulasi Terkini</div>
@@ -849,103 +616,67 @@
       </div>
     </div>
 
-    <!-- RIGHT: big stat card + chart -->
     <div class="why-right">
-
-      <!-- Big stat card -->
       <div class="why-big-card" id="whyBigCard">
         <div class="orbit-dot"></div>
         <div class="card-glow"></div>
         <div class="big-num" id="whyBigNum">0<span>%</span></div>
-        <div class="big-label">Program studi yang kami dampingi berhasil mendapat persetujuan Dikti pada pengajuan pertama.</div>
+        <div class="big-label">Seluruh mitra kami berhasil memperoleh SK Pembukaan Program Studi — dengan 95% hanya mendapat revisi minor pada pengajuan pertama.</div>
         <div class="mini-stats">
-          <div>
-            <div class="mini-stat-num" id="ms1">0</div>
-            <div class="mini-stat-label">Prodi Selesai</div>
-          </div>
-          <div>
-            <div class="mini-stat-num" id="ms2">0</div>
-            <div class="mini-stat-label">Perguruan Tinggi</div>
-          </div>
-          <div>
-            <div class="mini-stat-num" id="ms3">0</div>
-            <div class="mini-stat-label">Provinsi</div>
-          </div>
-          <div>
-            <div class="mini-stat-num" id="ms4">0</div>
-            <div class="mini-stat-label">Tahun Berdiri</div>
-          </div>
+          <div><div class="mini-stat-num" id="ms1">0</div><div class="mini-stat-label">Prodi Selesai</div></div>
+          <div><div class="mini-stat-num" id="ms2">0</div><div class="mini-stat-label">Perguruan Tinggi</div></div>
+          <div><div class="mini-stat-num" id="ms3">0</div><div class="mini-stat-label">Revisi Minor</div></div>
+          <div><div class="mini-stat-num" id="ms4">0</div><div class="mini-stat-label">Tahun Berdiri</div></div>
         </div>
       </div>
 
-      <!-- Animated bar chart -->
       <div class="why-chart-card" id="whyChartCard">
         <div class="why-chart-label">Pertumbuhan Program Studi per Tahun</div>
         <svg viewBox="0 0 360 160" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
-
-          <!-- Guide lines -->
           <line x1="20" y1="130" x2="340" y2="130" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
           <line x1="20" y1="100" x2="340" y2="100" stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3,4"/>
           <line x1="20" y1="70"  x2="340" y2="70"  stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3,4"/>
           <line x1="20" y1="40"  x2="340" y2="40"  stroke="rgba(255,255,255,0.06)" stroke-width="1" stroke-dasharray="3,4"/>
 
-          <!-- 2020: 18 → 38px tall, y=92 -->
           <g class="bar-group">
-            <rect class="bar-rect" x="40" y="92" width="38" height="38" rx="4" fill="rgba(255,255,255,0.12)"/>
-            <text class="bar-label-val" x="59" y="87" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.45)" font-family="Plus Jakarta Sans, sans-serif" font-weight="600">18</text>
-            <text x="59" y="147" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.32)" font-family="Plus Jakarta Sans, sans-serif">2020</text>
+            <rect class="bar-rect" x="40" y="108" width="42" height="22" rx="4" fill="rgba(255,255,255,0.12)"/>
+            <text class="bar-label-val" x="61" y="103" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.45)" font-family="Plus Jakarta Sans, sans-serif" font-weight="600">8</text>
+            <text x="61" y="147" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.32)" font-family="Plus Jakarta Sans, sans-serif">2022</text>
           </g>
 
-          <!-- 2021: 24 → 51px tall, y=79 -->
           <g class="bar-group">
-            <rect class="bar-rect" x="100" y="79" width="38" height="51" rx="4" fill="rgba(255,255,255,0.18)"/>
-            <text class="bar-label-val" x="119" y="74" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.5)" font-family="Plus Jakarta Sans, sans-serif" font-weight="600">24</text>
-            <text x="119" y="147" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.32)" font-family="Plus Jakarta Sans, sans-serif">2021</text>
+            <rect class="bar-rect" x="120" y="93" width="42" height="37" rx="4" fill="rgba(255,255,255,0.20)"/>
+            <text class="bar-label-val" x="141" y="88" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.5)" font-family="Plus Jakarta Sans, sans-serif" font-weight="600">14</text>
+            <text x="141" y="147" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.32)" font-family="Plus Jakarta Sans, sans-serif">2023</text>
           </g>
 
-          <!-- 2022: 28 → 60px tall, y=70 -->
           <g class="bar-group">
-            <rect class="bar-rect" x="160" y="70" width="38" height="60" rx="4" fill="rgba(255,255,255,0.24)"/>
-            <text class="bar-label-val" x="179" y="65" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.55)" font-family="Plus Jakarta Sans, sans-serif" font-weight="600">28</text>
-            <text x="179" y="147" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.32)" font-family="Plus Jakarta Sans, sans-serif">2022</text>
+            <rect class="bar-rect" x="200" y="78" width="42" height="52" rx="4" fill="rgba(147,197,253,0.40)"/>
+            <text class="bar-label-val" x="221" y="73" text-anchor="middle" font-size="10" fill="rgba(147,197,253,.9)" font-family="Plus Jakarta Sans, sans-serif" font-weight="600">18</text>
+            <text x="221" y="147" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.4)" font-family="Plus Jakarta Sans, sans-serif">2024</text>
           </g>
 
-          <!-- 2023: 38 → 81px tall, y=49 -->
           <g class="bar-group">
-            <rect class="bar-rect" x="220" y="49" width="38" height="81" rx="4" fill="rgba(147,197,253,0.45)"/>
-            <text class="bar-label-val" x="239" y="44" text-anchor="middle" font-size="10" fill="rgba(147,197,253,.9)" font-family="Plus Jakarta Sans, sans-serif" font-weight="600">38</text>
-            <text x="239" y="147" text-anchor="middle" font-size="10" fill="rgba(255,255,255,.4)" font-family="Plus Jakarta Sans, sans-serif">2023</text>
+            <rect class="bar-rect" x="280" y="40" width="42" height="90" rx="4" fill="#93c5fd"/>
+            <text class="bar-label-val" x="301" y="35" text-anchor="middle" font-size="11" fill="#93c5fd" font-family="Plus Jakarta Sans, sans-serif" font-weight="700">40+</text>
+            <text x="301" y="147" text-anchor="middle" font-size="10" fill="#93c5fd" font-family="Plus Jakarta Sans, sans-serif" font-weight="600">2025</text>
           </g>
 
-          <!-- 2024: 42 → 90px tall, y=40 -->
-          <g class="bar-group">
-            <rect class="bar-rect" x="280" y="40" width="38" height="90" rx="4" fill="#93c5fd"/>
-            <text class="bar-label-val" x="299" y="35" text-anchor="middle" font-size="11" fill="#93c5fd" font-family="Plus Jakarta Sans, sans-serif" font-weight="700">42</text>
-            <text x="299" y="147" text-anchor="middle" font-size="10" fill="#93c5fd" font-family="Plus Jakarta Sans, sans-serif" font-weight="600">2024</text>
-          </g>
-
-          <!-- Trend line -->
-          <polyline id="trend-line"
-            points="59,92 119,79 179,70 239,49 299,40"
-            fill="none" stroke="#fbbf24" stroke-width="1.5"
-            stroke-dasharray="4,3" opacity=".7"/>
-
-          <!-- Trend dot (pulsing) -->
-          <circle id="trend-dot" cx="299" cy="40" r="4" fill="#fbbf24"/>
+          <polyline id="trend-line" points="61,108 141,93 221,78 301,40" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="4,3" opacity=".7"/>
+          <circle id="trend-dot" cx="301" cy="40" r="4" fill="#fbbf24"/>
         </svg>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════ CONTACT ══ -->
+<!-- ══ CONTACT ══ -->
 <section class="contact" id="kontak">
   <div class="contact-inner">
     <div class="contact-header fade-up">
-      <div class="section-eyebrow">Mulai Sekarang</div>
+      <div class="section-eyebrow">Hubungi Kami</div>
       <h2 class="section-title">Wujudkan <span class="navy">Program Studi</span> Impian Anda</h2>
-      <p class="contact-sub">Hubungi kami untuk konsultasi gratis. Tim ahli kami siap membantu Anda merencanakan pendirian program studi yang tepat.</p>
+      <p class="contact-sub">Silakan mengisi formulir di bawah ini. Tim kami akan menghubungi Anda untuk konsultasi. Tim ahli kami siap membantu Anda merencanakan pendirian program studi yang tepat.</p>
     </div>
     <div class="contact-form-wrap fade-up">
       <div class="contact-form">
@@ -953,24 +684,26 @@
         <div class="form-group"><label class="form-label">Nama Institusi</label><input class="form-input" type="text" placeholder="Universitas / Institut / STIKES..."></div>
         <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="rektor@universitas.ac.id"></div>
         <div class="form-group"><label class="form-label">Nomor WhatsApp</label><input class="form-input" type="tel" placeholder="+62 812 xxxx xxxx"></div>
-        <div class="form-group full"><label class="form-label">Program Studi yang Ingin Didirikan</label><textarea class="form-textarea" placeholder="Ceritakan program studi yang ingin Anda dirikan, jenjang (D3/S1/S2/S3), dan pertanyaan yang ingin Anda konsultasikan..."></textarea></div>
+        <div class="form-group full"><label class="form-label">Program Studi yang Ingin Didirikan</label><textarea class="form-textarea" placeholder="Ceritakan program studi yang ingin Anda dirikan, jenjang (D3/S1/S2/S3), dan pertanyaan yang ingin Anda sampaikan..."></textarea></div>
       </div>
-      <button class="form-submit">Kirim Konsultasi <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 8L14 8M14 8L10 4M14 8L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button class="form-submit">Kirim <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M2 8L14 8M14 8L10 4M14 8L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
     <div class="contact-info fade-up">
-      <div class="contact-info-item"><div class="contact-info-label">Email</div><div class="contact-info-val">info@sinergibinabangsa.co.id</div></div>
+      <div class="contact-info-item"><div class="contact-info-label">Email</div><div class="contact-info-val">info@sinergibinabangsa.id</div></div>
       <div class="contact-info-item"><div class="contact-info-label">WhatsApp</div><div class="contact-info-val">+62 821 0000 0000</div></div>
-      <div class="contact-info-item"><div class="contact-info-label">Kantor</div><div class="contact-info-val">Jakarta, Indonesia</div></div>
+      <div class="contact-info-item"><div class="contact-info-label">Kantor</div><div class="contact-info-val">Surabaya, Indonesia</div></div>
     </div>
   </div>
 </section>
 
+<!-- ══ FOOTER ══ -->
 <footer>
   <div class="footer-logo">
-    <img src="assets/logo.jpeg" alt="Logo">
-    <span class="footer-brand">PT Sinergi Bina Bangsa</span>
+    <img src="assets/logo.jpeg" alt="Logo Sinergi Bina Bangsa">
+    <span class="footer-brand-name">Sinergi Bina Bangsa</span>
+    <span class="footer-brand-sub">Konsultan Pendidikan Tinggi</span>
   </div>
-  <div class="footer-copy">© 2025 PT Sinergi Bina Bangsa. Seluruh hak cipta dilindungi.</div>
+  <div class="footer-copy">© 2025 Sinergi Bina Bangsa. Seluruh hak cipta dilindungi.</div>
   <ul class="footer-links">
     <li><a href="#tentang">Tentang</a></li>
     <li><a href="#layanan">Layanan</a></li>
@@ -980,174 +713,85 @@
 
 <script>
   /* ── CURSOR ── */
-  const cursor = document.getElementById('cursor');
-  const ring   = document.getElementById('cursorRing');
-  let mx=0, my=0, rx=0, ry=0;
-  if (window.innerWidth > 1024) {
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px';
-      cursor.style.top  = my + 'px';
+  const cursor=document.getElementById('cursor'), ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  if(window.innerWidth>1024){
+    document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px';});
+    (function anim(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim);})();
+    document.querySelectorAll('a,button,.service-card,.why-item,.about-card').forEach(el=>{
+      el.addEventListener('mouseenter',()=>{ring.style.transform='translate(-50%,-50%) scale(1.7)';ring.style.opacity='.32';});
+      el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';ring.style.opacity='.5';});
     });
-    (function anim() {
-      rx += (mx - rx) * .12;
-      ry += (my - ry) * .12;
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      requestAnimationFrame(anim);
-    })();
-    document.querySelectorAll('a,button,.service-card,.why-item,.about-card').forEach(el => {
-      el.addEventListener('mouseenter', () => { ring.style.transform = 'translate(-50%,-50%) scale(1.7)'; ring.style.opacity = '.32'; });
-      el.addEventListener('mouseleave', () => { ring.style.transform = 'translate(-50%,-50%) scale(1)';  ring.style.opacity = '.5'; });
-    });
-  } else {
-    cursor.style.display = 'none';
-    ring.style.display   = 'none';
-  }
+  } else { cursor.style.display='none'; ring.style.display='none'; }
 
   /* ── MOBILE NAV ── */
-  function toggleNav() {
-    document.getElementById('mobileNav').classList.toggle('open');
-  }
+  function toggleNav(){ document.getElementById('mobileNav').classList.toggle('open'); }
 
   /* ── HERO SLIDER ── */
-  let current = 0, autoTimer;
-  const total = 3;
-  const slidesEl = document.getElementById('slides');
-  const dots = [...document.querySelectorAll('.slider-dot')];
-
-  function goTo(idx, reset = true) {
-    current = (idx + total) % total;
-    slidesEl.style.transform = `translateX(-${current * 100}vw)`;
-    dots.forEach((d, i) => d.classList.toggle('active', i === current));
-    if (reset) {
-      clearInterval(autoTimer);
-      autoTimer = setInterval(() => goTo(current + 1), 5000);
-    }
+  let current=0, autoTimer;
+  const slidesEl=document.getElementById('slides');
+  const dots=[...document.querySelectorAll('.slider-dot')];
+  function goTo(idx,reset=true){
+    current=(idx+3)%3;
+    slidesEl.style.transform=`translateX(-${current*100}vw)`;
+    dots.forEach((d,i)=>d.classList.toggle('active',i===current));
+    if(reset){clearInterval(autoTimer);autoTimer=setInterval(()=>goTo(current+1),5000);}
   }
-  document.getElementById('nextBtn').addEventListener('click', () => goTo(current + 1));
-  document.getElementById('prevBtn').addEventListener('click', () => goTo(current - 1));
-  dots.forEach(d => d.addEventListener('click', () => goTo(+d.dataset.idx)));
-  autoTimer = setInterval(() => goTo(current + 1), 5000);
+  document.getElementById('nextBtn').addEventListener('click',()=>goTo(current+1));
+  document.getElementById('prevBtn').addEventListener('click',()=>goTo(current-1));
+  dots.forEach(d=>d.addEventListener('click',()=>goTo(+d.dataset.idx)));
+  autoTimer=setInterval(()=>goTo(current+1),5000);
 
-  /* ── FADE UP (general) ── */
-  const fadeObs = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting) en.target.classList.add('visible');
-    });
-  }, { threshold: .1 });
-  document.querySelectorAll('.fade-up').forEach(el => fadeObs.observe(el));
+  /* ── FADE UP ── */
+  const fadeObs=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible');}),{threshold:.1});
+  document.querySelectorAll('.fade-up').forEach(el=>fadeObs.observe(el));
 
-  /* ── COUNTERS (stats bar) ── */
-  function animCounter(el, target, duration) {
-    let start = null;
-    function step(ts) {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.floor(ease * target);
-      if (p < 1) requestAnimationFrame(step);
-      else el.textContent = target;
-    }
+  /* ── COUNTERS ── */
+  function animCounter(el,target,duration){
+    let s=null;
+    function step(ts){if(!s)s=ts;const p=Math.min((ts-s)/duration,1);const e=1-Math.pow(1-p,3);el.textContent=Math.floor(e*target);if(p<1)requestAnimationFrame(step);else el.textContent=target;}
     requestAnimationFrame(step);
   }
-  const cObs = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting) {
-        animCounter(en.target, parseInt(en.target.dataset.target), 2000);
-        cObs.unobserve(en.target);
-      }
-    });
-  }, { threshold: .5 });
-  document.querySelectorAll('.counter').forEach(el => cObs.observe(el));
+  const cObs=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting){animCounter(en.target,parseInt(en.target.dataset.target),2000);cObs.unobserve(en.target);}}),{threshold:.5});
+  document.querySelectorAll('.counter').forEach(el=>cObs.observe(el));
 
   /* ── NAVBAR SHRINK ── */
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').style.padding =
-      window.scrollY > 60 ? '0.7rem 4rem' : '1.1rem 4rem';
+  window.addEventListener('scroll',()=>{document.getElementById('navbar').style.padding=window.scrollY>60?'0.5rem 4rem':'0.9rem 4rem';});
+
+  /* ── FORM ── */
+  document.querySelector('.form-submit').addEventListener('click',function(){
+    const inputs=[...document.querySelectorAll('.form-input,.form-textarea')];
+    if(inputs.some(i=>!i.value.trim())){alert('Mohon lengkapi semua kolom terlebih dahulu.');return;}
+    this.innerHTML='&#10003; Pesan Terkirim! Tim kami akan menghubungi Anda.';
+    this.style.background='#16a34a';
+    inputs.forEach(i=>i.value='');
   });
 
-  /* ── FORM SUBMIT ── */
-  document.querySelector('.form-submit').addEventListener('click', function () {
-    const inputs = [...document.querySelectorAll('.form-input,.form-textarea')];
-    if (inputs.some(i => !i.value.trim())) {
-      alert('Mohon lengkapi semua kolom terlebih dahulu.');
-      return;
-    }
-    this.innerHTML = '&#10003; Pesan Terkirim! Tim kami akan menghubungi Anda.';
-    this.style.background = '#16a34a';
-    inputs.forEach(i => i.value = '');
-  });
-
-  /* ══════════════════════════════════════
-     WHY SECTION — ANIMATED
-  ══════════════════════════════════════ */
-
-  // Counter helper for why section
-  function animCount(el, target, suffix, duration) {
-    let start = null;
-    function step(ts) {
-      if (!start) start = ts;
-      const p    = Math.min((ts - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - p, 3);
-      el.textContent = Math.floor(ease * target) + suffix;
-      if (p < 1) requestAnimationFrame(step);
-      else el.textContent = target + suffix;
-    }
+  /* ── WHY ANIMATIONS ── */
+  function animCount(el,target,suffix,duration){
+    let s=null;
+    function step(ts){if(!s)s=ts;const p=Math.min((ts-s)/duration,1);const e=1-Math.pow(1-p,3);el.textContent=Math.floor(e*target)+suffix;if(p<1)requestAnimationFrame(step);else el.textContent=target+suffix;}
     requestAnimationFrame(step);
   }
-
-  let whyTriggered = false;
-
-  function triggerWhyAnimations() {
-    if (whyTriggered) return;
-    whyTriggered = true;
-
-    // 1. Why items slide in
-    document.querySelectorAll('#whyList .why-item').forEach((item, i) => {
-      item.style.animationDelay = (i * 0.1 + 0.05) + 's';
-      item.classList.add('anim-in');
-    });
-
-    // 2. Big card fade up
+  let whyTriggered=false;
+  function triggerWhyAnimations(){
+    if(whyTriggered)return; whyTriggered=true;
+    document.querySelectorAll('#whyList .why-item').forEach((item,i)=>{item.style.animationDelay=(i*0.1+0.05)+'s';item.classList.add('anim-in');});
     document.getElementById('whyBigCard').classList.add('anim-in');
-
-    // 3. Big num counter 0 → 98%
-    const bigNumEl = document.getElementById('whyBigNum');
-    setTimeout(() => {
-      let s = null;
-      function bigStep(ts) {
-        if (!s) s = ts;
-        const p    = Math.min((ts - s) / 1500, 1);
-        const ease = 1 - Math.pow(1 - p, 3);
-        const v    = Math.floor(ease * 98);
-        bigNumEl.innerHTML = v + '<span>%</span>';
-        if (p < 1) requestAnimationFrame(bigStep);
-        else bigNumEl.innerHTML = '98<span>%</span>';
-      }
+    const bigNumEl=document.getElementById('whyBigNum');
+    setTimeout(()=>{
+      let s=null;
+      function bigStep(ts){if(!s)s=ts;const p=Math.min((ts-s)/1500,1);const e=1-Math.pow(1-p,3);bigNumEl.innerHTML=Math.floor(e*100)+'<span>%</span>';if(p<1)requestAnimationFrame(bigStep);else bigNumEl.innerHTML='100<span>%</span>';}
       requestAnimationFrame(bigStep);
-    }, 200);
-
-    // 4. Mini stat counters
-    setTimeout(() => animCount(document.getElementById('ms1'), 150, '+', 1200), 550);
-    setTimeout(() => animCount(document.getElementById('ms2'),  80, '+', 1000), 700);
-    setTimeout(() => animCount(document.getElementById('ms3'),  34, '',   900), 850);
-    setTimeout(() => animCount(document.getElementById('ms4'),  10, '+',  800), 1000);
-
-    // 5. Chart card fade up + bars animate
+    },200);
+    setTimeout(()=>animCount(document.getElementById('ms1'),40,'+',1200),550);
+    setTimeout(()=>animCount(document.getElementById('ms2'),30,'+',1000),700);
+    setTimeout(()=>animCount(document.getElementById('ms3'),95,'%', 900),850);
+    setTimeout(()=>animCount(document.getElementById('ms4'), 3,'+', 800),1000);
     document.getElementById('whyChartCard').classList.add('anim-in');
-    setTimeout(() => {
-      document.getElementById('whyChartCard').classList.add('bars-animated');
-    }, 350);
+    setTimeout(()=>document.getElementById('whyChartCard').classList.add('bars-animated'),350);
   }
-
-  // Observe the why section
-  const whyObs = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting) triggerWhyAnimations();
-    });
-  }, { threshold: 0.2 });
-
+  const whyObs=new IntersectionObserver(entries=>entries.forEach(en=>{if(en.isIntersecting)triggerWhyAnimations();}),{threshold:0.2});
   whyObs.observe(document.getElementById('kenapa'));
 </script>
 </body>
