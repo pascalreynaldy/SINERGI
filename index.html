@@ -53,7 +53,7 @@
     transition: padding .3s ease;
   }
   /* Logo: image left, text stack right */
-  .nav-logo { display: flex; align-items: center; gap: .85rem; text-decoration: none; }
+  .nav-logo { display: flex; align-items: flex-start; gap: 4px; text-decoration: none; flex-direction: column;   /* INI KUNCI */}
   .logo-img  { width: 44px; height: 44px; object-fit: contain; border-radius: 8px; flex-shrink: 0; }
   .nav-brand-stack { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; }
   .nav-brand-name  { font-size: .88rem; font-weight: 800; color: var(--navy); line-height: 1.1; }
@@ -287,7 +287,6 @@
 <div class="mobile-nav" id="mobileNav">
   <a href="#tentang" onclick="toggleNav()">Tentang</a>
   <a href="#layanan" onclick="toggleNav()">Layanan</a>
-  <a href="#proses" onclick="toggleNav()">Proses</a>
   <a href="#kontak" onclick="toggleNav()">Kontak</a>
 </div>
 
@@ -303,7 +302,6 @@
   <ul class="nav-links">
     <li><a href="#tentang">Tentang</a></li>
     <li><a href="#layanan">Layanan</a></li>
-    <li><a href="#proses">Proses</a></li>
     <li><a href="#kontak" class="nav-cta">Konsultasi</a></li>
   </ul>
   <div class="hamburger" id="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></div>
