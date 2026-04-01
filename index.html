@@ -423,11 +423,10 @@
   .partners-track { display: flex; gap: 1rem; width: max-content; animation: scrollPartners 42s linear infinite; }
   .partners-track:hover { animation-play-state: paused; }
   @keyframes scrollPartners { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .partner-card { flex-shrink: 0; width: 155px; height: 88px; background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .45rem; padding: .9rem .7rem; transition: all .3s; cursor: default; user-select: none; }
+  .partner-card { flex-shrink: 0; width: 155px; height: 88px; background: var(--off-white); border: 1px solid var(--border); border-radius: 14px; display: flex; align-items: center; justify-content: center; padding: .8rem; transition: all .3s; cursor: default; user-select: none; }
   .partner-card:hover { background: var(--white); border-color: var(--accent); box-shadow: 0 6px 24px rgba(37,99,235,.12); transform: translateY(-4px) scale(1.03); }
-  .partner-badge { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: .58rem; font-weight: 800; color: #fff; letter-spacing: .02em; text-align: center; line-height: 1.15; flex-shrink: 0; }
-  .partner-name { font-size: .58rem; font-weight: 600; color: var(--gray-500); text-align: center; line-height: 1.3; max-width: 130px; }
-  .partner-card:hover .partner-name { color: var(--accent); }
+  .partner-logo-img { width: 100%; height: 100%; object-fit: contain; filter: grayscale(30%); transition: filter .3s; }
+  .partner-card:hover .partner-logo-img { filter: grayscale(0%); }
 
   /* ── FOOTER ── */
   footer { background: var(--navy-dark); padding: 2.4rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; border-top: 1px solid rgba(255,255,255,.08); }
@@ -803,7 +802,7 @@
     <div class="contact-info fade-up">
       <div class="contact-info-item">
         <div class="contact-info-label">Email</div>
-        <div class="contact-info-val"><a href="/cdn-cgi/l/email-protection#3c55525a537c4f5552594e5b555e55525d5e5d525b4f5d125558"><span class="__cf_email__" data-cfemail="a8c1c6cec7e8dbc1c6cddacfc1cac1c6c9cac9c6cfdbc986c1cc">[email&#160;protected]</span></a></div>
+        <div class="contact-info-val"><a href="mailto:info@sinergibinabangsa.id">info@sinergibinabangsa.id</a></div>
       </div>
       <div class="contact-info-item">
         <div class="contact-info-label">WhatsApp</div>
@@ -847,38 +846,13 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  /* ══ PARTNER DATA ══ */
-  const PARTNERS = [
-    { abbr:'UNAIR',   name:'Universitas Airlangga',              bg:'#003087' },
-    { abbr:'UGM',     name:'Universitas Gadjah Mada',            bg:'#003d7a' },
-    { abbr:'UI',      name:'Universitas Indonesia',              bg:'#003087', fg:'#FFD700' },
-    { abbr:'UNPAD',   name:'Universitas Padjadjaran',            bg:'#00529b' },
-    { abbr:'UNDIP',   name:'Universitas Diponegoro',             bg:'#003f87' },
-    { abbr:'UNHAS',   name:'Universitas Hasanuddin',             bg:'#c8102e' },
-    { abbr:'UNSRI',   name:'Universitas Sriwijaya',              bg:'#006341' },
-    { abbr:'USU',     name:'Universitas Sumatera Utara',         bg:'#00529b' },
-    { abbr:'UNUD',    name:'Universitas Udayana',                bg:'#1a5276' },
-    { abbr:'UNRAM',   name:'Universitas Mataram',                bg:'#154360' },
-    { abbr:'UNJA',    name:'Universitas Jambi',                  bg:'#0b5345' },
-    { abbr:'UNMUL',   name:'Universitas Mulawarman',             bg:'#1a5276' },
-    { abbr:'UNTAD',   name:'Universitas Tadulako',               bg:'#117a65' },
-    { abbr:'UNKHAIR', name:'Universitas Khairun',                bg:'#784212' },
-    { abbr:'UNIKAL',  name:'Universitas Pekalongan',             bg:'#117a65' },
-    { abbr:'UNRIKA',  name:'Univ. Riau Kepulauan',              bg:'#1b4f72' },
-    { abbr:'STIKES',  name:'STIKES Harapan Bangsa',              bg:'#6c3483' },
-    { abbr:'UMI',     name:'Univ. Muslim Indonesia',            bg:'#1b4f72' },
-    { abbr:'UMS',     name:'UM Surakarta',                      bg:'#145a32' },
-    { abbr:'UMY',     name:'UM Yogyakarta',                     bg:'#17202a' },
-    { abbr:'UMM',     name:'UM Malang',                         bg:'#1a5276' },
-  ];
-
   (function buildPartners() {
     const track = document.getElementById('partnersTrack');
-    const doubled = [...PARTNERS, ...PARTNERS];
-    track.innerHTML = doubled.map(p => `
+    const imgs = Array.from({length: 21}, (_, i) => 'assets/' + (i+1) + '.jpg');
+    const doubled = [...imgs, ...imgs];
+    track.innerHTML = doubled.map(src => `
       <div class="partner-card">
-        <div class="partner-badge" style="background:${p.bg};color:${p.fg||'#fff'}">${p.abbr}</div>
-        <div class="partner-name">${p.name}</div>
+        <img src="${src}" alt="Mitra" class="partner-logo-img">
       </div>
     `).join('');
   })();
